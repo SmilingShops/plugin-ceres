@@ -17,7 +17,16 @@
 
     {{ Twig.if("overrideShippingProfiles | trim is empty") }}
         <div class="shipping-method-select">
-            <shipping-profile-select template="#vue-shipping-profile-select"></shipping-profile-select>
+            <shipping-profile-select>
+                {% if isPreview %}
+                    <div class="widget-placeholder">
+                        <div>
+                            <p class="title">{{ Twig.trans("Ceres::Widget.shippingPrivacyCheckLabel") }}</p>
+                            <p class="description">{{ Twig.trans("Ceres::Widget.shippingPrivacyCheckPlaceholderDescription") }}</p>
+                        </div>
+                    </div>
+                {% endif %}
+            </shipping-profile-select>
         </div>
     {{ Twig.else() }}
         {{ Twig.print("overridePaymentList") }}

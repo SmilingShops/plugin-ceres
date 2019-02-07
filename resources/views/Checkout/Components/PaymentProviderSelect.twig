@@ -1,6 +1,6 @@
 <script type="x/template" id="vue-payment-provider-select">
     <div class="cmp cmp-method-list list mb-4" v-bind:class="{ 'error': this.showError }">
-        <ul class="method-list component-loading" :class="{ 'isLoading': isBasketLoading }">
+        <ul v-if="methodOfPaymentList.length" class="method-list component-loading" :class="{ 'isLoading': isBasketLoading }">
             <li v-for="paymentProvider in methodOfPaymentList" class="method-list-item" :data-id="paymentProvider.id">
                 <input
                         type="radio"
@@ -34,5 +34,9 @@
             </li><!--
             -->
         </ul>
+
+        <div v-else>
+            <slot></slot>
+        </div>
     </div>
 </script>

@@ -1,6 +1,6 @@
 <script type="x/template" id="vue-shipping-profile-select">
     <div class="cmp cmp-method-list list mb-4" v-bind:class="{ 'error': showError }">
-        <ul class="method-list component-loading" :class="{ 'isLoading': isBasketLoading }">
+        <ul v-if="shippingProfileList.length" class="method-list component-loading" :class="{ 'isLoading': isBasketLoading }">
             <li v-for="shippingProfile in shippingProfileList" class="method-list-item" :data-id="shippingProfile.parcelServicePresetId">
                 <input
                         type="radio"
@@ -26,5 +26,9 @@
                 </label>
             </li><!-- -->
         </ul>
+
+        <div v-else>
+            <slot></slot>
+        </div>
     </div>
 </script>
