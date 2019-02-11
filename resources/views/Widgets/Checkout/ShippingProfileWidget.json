@@ -4,10 +4,15 @@
     "previewImageURL": "/images/widgets/shipping-select.svg",
     "type": "checkout",
     "categories": ["checkout"],
-    "position": 200,
+    "position": 100,
     "widgetClass": "Ceres\\Widgets\\Checkout\\ShippingProfileWidget",
     "settings": {
-        "appearance": "@include(appearance)",
+        "appearance": {
+            "type": "select",
+            "required": true,
+            "defaultValue": "primary",
+            "options": "@include(appearance)"
+        },
         "hinttext": {
             "type": "codeEditor",
             "defaultValue": "",
